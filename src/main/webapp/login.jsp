@@ -2,8 +2,12 @@
 
 <%
  String userName = request.getParameter("userName"); 
+ 
+ out.println(" String = " + userName);
+ 
  String password = request.getParameter("password"); 
- Class.forName ( "com.mysql.jdbc.Driver"); 
+ out.println(" String password = " + password);
+ Class.forName ("com.mysql.jdbc.Driver"); 
  Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/logindb", "root", "root123");
  Statement st = con.createStatement(); 
  ResultSet rs; 

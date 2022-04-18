@@ -3,8 +3,10 @@ pipeline {
         environment {
         dockerimage = "mavenapp"
         dockercontainer = "maven"
-        dockerport = "3001"
-    }   
+    }
+    parameters {
+        string(name: 'PORT', defaultValue: '', description: 'Port number')
+    }
     stages {
       stage('Git Clone') {
         steps{
@@ -28,7 +30,7 @@ pipeline {
         } 
      stage ('run') {
            steps { 
-               sh "docker run -d -p ${dockerport}:8080 --name ${dockercontainer}${BUILD_NUMBER} ${dockerimage}:${BUILD_NUMBER}"
+               sh "docker run -d -p ${params.PORT}:8080 --name ${dockercontainer}${BUILD_NUMBER} ${dockerimage}:${BUILD_NUMBER}"
            }
         }   
     }

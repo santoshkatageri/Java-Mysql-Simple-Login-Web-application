@@ -7,6 +7,21 @@
   <version>1.0-SNAPSHOT</version>
   <name>LoginWebApp Maven Webapp</name>
   <url>http://maven.apache.org</url>
+	
+  <distributionManagement>
+    <repository>
+        <id>central</id>
+        <name>antix1-releases</name>
+        <url>http://192.168.172.144:8081/artifactory/libs-release</url>
+    </repository>
+    <snapshotRepository>
+        <id>snapshots</id>
+        <name>antix1-snapshots</name>
+        <url>http://192.168.172.144:8081/artifactory/libs-release</url>
+    </snapshotRepository>
+</distributionManagement>	
+	
+	
   <dependencies>
   
     <dependency>

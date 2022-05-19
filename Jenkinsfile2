@@ -42,7 +42,7 @@ pipeline {
         }
      stage ('tag') {
            steps { 
-               sh "docker tag ${dockerimage}:${BUILD_NUMBER} 192.168.172.145:8082/docker-virtual/${dockerimage}:${BUILD_NUMBER}"
+               sh "docker tag ${dockerimage}:${BUILD_NUMBER} 192.168.172.145:8082/docker-local/${dockerimage}:${BUILD_NUMBER}"
            }
         }
       stage ('login') {
@@ -52,7 +52,7 @@ pipeline {
         }
      stage ('push') {
            steps { 
-               sh "docker push 192.168.172.145:8082/docker-virtual/${dockerimage}:${BUILD_NUMBER}"
+               sh "docker push 192.168.172.145:8082/docker-local/${dockerimage}:${BUILD_NUMBER}"
            }
         }
       }

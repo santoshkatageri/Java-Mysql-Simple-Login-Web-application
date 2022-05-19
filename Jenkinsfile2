@@ -3,8 +3,10 @@ pipeline {
         environment {
         dockerimage = "mavenapp"
         dockercontainer = "maven"
-        dockeruser = "admin"
-        dockerpassword = "1234qwerASDF!"
+        // dockeruser = "admin"
+        // dockerpassword = "1234qwerASDF!"
+        USER_CREDENTIALS = credentials('artifactory')
+        
     }
      parameters {
         string(name: 'PORT', defaultValue: '', description: 'Port number')
@@ -47,7 +49,7 @@ pipeline {
         }
       stage ('login') {
            steps {
-            sh "docker login -u ${dockeruser} -p ${dockerpassword} 192.168.172.145:8082"
+            sh "docker login -u $USER_CREDENTIALS_USR -p $USER_CREDENTIALS_PSW 192.168.172.145:8082"
            }
         }
      stage ('push') {

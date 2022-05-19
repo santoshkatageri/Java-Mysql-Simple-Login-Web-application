@@ -3,8 +3,6 @@ pipeline {
         environment {
         dockerimage = "mavenapp"
         dockercontainer = "maven"
-        // dockeruser = "admin"
-        // dockerpassword = "1234qwerASDF!"
         USER_CREDENTIALS = credentials('artifactory')
         
     }

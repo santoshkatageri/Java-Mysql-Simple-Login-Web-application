@@ -47,7 +47,7 @@ pipeline {
         }
       stage ('login') {
            steps {
-            sh "docker login 192.168.172.145:8082-u ${dockeruser} -p ${dockerpassword}"
+            sh "docker login -u ${dockeruser} -p ${dockerpassword} 192.168.172.145:8082"
            }
         }
      stage ('push') {

@@ -4,7 +4,7 @@ pipeline {
         dockerimage = "mavenapp"
         dockercontainer = "maven"
     }
-    parameters {
+    // parameters {
         string(name: 'PORT', defaultValue: '', description: 'Port number')
     }
     stages {

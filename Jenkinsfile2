@@ -5,8 +5,8 @@ pipeline {
         dockercontainer = "maven"
     }
     // parameters {
-        string(name: 'PORT', defaultValue: '', description: 'Port number')
-    }
+    //    string(name: 'PORT', defaultValue: '', description: 'Port number')
+   // }
     stages {
       stage('Git Clone') {
         steps{
@@ -34,10 +34,10 @@ pipeline {
            }
         } 
      //  stage ('run') {
-           steps { 
-               sh "docker run -d -p ${params.PORT}:8080 --name ${dockercontainer}${BUILD_NUMBER} ${dockerimage}:${BUILD_NUMBER}"
-           }
-        }
+     //      steps { 
+     //          sh "docker run -d -p ${params.PORT}:8080 --name ${dockercontainer}${BUILD_NUMBER} ${dockerimage}:${BUILD_NUMBER}"
+     //      }
+     //   }
      stage ('tag') {
            steps { 
                sh "docker tag ${dockerimage}:${BUILD_NUMBER} 192.168.172.145:8082/docker-virtual/${dockerimage}:${BUILD_NUMBER}"
@@ -47,6 +47,6 @@ pipeline {
            steps { 
                sh "docker push 192.168.172.145:8082/docker-virtual/${dockerimage}:${BUILD_NUMBER}"
            }
-        }        
-    } 
- 
+        }
+      }
+    }          

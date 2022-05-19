@@ -12,12 +12,12 @@
     <repository>
         <id>central</id>
         <name>antix1-releases</name>
-        <url>http://192.168.172.144:8081/artifactory/libs-release</url>
+        <url>http://192.168.172.145:8081/artifactory/libs-release-local</url>
     </repository>
     <snapshotRepository>
         <id>snapshots</id>
         <name>antix1-snapshots</name>
-        <url>http://192.168.172.144:8081/artifactory/libs-release</url>
+        <url>http://192.168.172.145:8081/artifactory/libs-release-local</url>
     </snapshotRepository>
 </distributionManagement>	
 	

@@ -48,6 +48,5 @@ pipeline {
                sh "docker push 192.168.172.145:8082/docker-virtual/${dockerimage}:${BUILD_NUMBER}"
            }
         }        
-    }
-}    
+    } 
  

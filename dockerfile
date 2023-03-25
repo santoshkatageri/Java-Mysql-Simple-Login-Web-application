@@ -1,3 +1,3 @@
 FROM tomcat
 
-ADD target/*.war /usr/local/tomcat/webapps/LoginWebApp.war
+ADD target/LoginWebApp.war /usr/local/tomcat/webapps/LoginWebApp.war

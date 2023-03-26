@@ -1,0 +1,28 @@
+# Base image
+FROM tomcat:latest
+
+# Update package list and install Java and Maven
+RUN apt-get update && \
+    apt-get install -y openjdk-11-jdk maven
+
+# Set environment variables
+ENV CATALINA_HOME /usr/local/tomcat
+ENV PATH $CATALINA_HOME/bin:$PATH
+
+# Copy the application code to the container
+COPY . /usr/src/app
+
+# Set the working directory
+WORKDIR /usr/src/app
+
+# Build the application with Maven
+RUN mvn clean install package
+
+# Copy the WAR file to the Tomcat webapps directory
+RUN cp target/*.war $CATALINA_HOME/webapps/
+
+# Expose the Tomcat port
+EXPOSE 8080
+
+# Start Tomcat
+CMD ["catalina.sh", "run"]

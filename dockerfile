@@ -1,3 +1,7 @@
+FROM maven
+WORKDIR /app
+COPY . /app/
+RUN mvn -f /app/pom.xml clean install package
 FROM tomcat
-
-ADD target/LoginWebApp.war /usr/local/tomcat/webapps/LoginWebApp.war
+#COPY target/*.war /usr/local/tomcat/webapps/java-webapp.war
+EXPOSE 8080
